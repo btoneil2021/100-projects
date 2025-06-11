@@ -1,0 +1,86 @@
+body {
+    font-family: 'Georgia', serif;
+    background-color: #f4f1ea;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: #4a3f35;
+    color: #fff;
+}
+
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.menu-category {
+    background-color: #fff;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.menu-category h2 {
+    color: #a22c29;
+    border-bottom: 2px solid #f0e2d0;
+    padding-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+.menu-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-category li {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem 1rem;
+    align-items: end;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed #ccc;
+}
+
+.menu-category li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.menu-category h3 {
+    margin: 0;
+    grid-column: 1 / 2;
+}
+
+.menu-category p {
+    margin: 0;
+    grid-column: 1 / 2;
+    font-style: italic;
+    color: #666;
+}
+
+.price {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+    font-weight: bold;
+    color: #4a3f35;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    background-color: #333;
+    color: #aaa;
+    font-size: 0.9rem;
+}
