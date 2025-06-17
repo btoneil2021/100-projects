@@ -5,6 +5,18 @@ export default function App() {
   const [targetColor, setTargetColor] = useState('');
   const [colorOptions, setColorOptions] = useState([]);
   const [difficultyLevel, setDifficultyLevel] = useState(10); // Start at a moderate level
+  const [streak, setStreak] = useState(0)
+
+  useEffect(() => {
+    setupNewRound();
+  }, []); // Note: setupNewRound will now read the latest difficultyLevel from state
+
+  const generateRandomColor = () => {
+    const red = Math.floor(Math.random() * 256);
+    const green = Math.floor(Math.random() * 256);
+    const blue = Math.floor(Math.random() * 256);
+    return `rgb(${red}, ${green}, ${blue})`;
+  };
 
   const generateVariantColor = (baseRgb, difficulty) => {
     // 1. Parse the base RGB color string
@@ -13,7 +25,7 @@ export default function App() {
     // 2. Calculate the maximum offset based on difficulty
     // A higher difficulty results in a smaller offset, making colors more similar.
     // The range is approximately 235 (at diff 1) to 55 (at diff 100).
-    const maxOffset = 255 - difficulty * 2;
+    const maxOffset = 255 - difficulty * 2.4;
 
     // 3. Generate new color components
     const newColorArr = baseColorArr.map(channel => {
@@ -27,10 +39,6 @@ export default function App() {
 
     return `rgb(${newColorArr[0]}, ${newColorArr[1]}, ${newColorArr[2]})`;
   };
-
-  useEffect(() => {
-    setupNewRound();
-  }, []); // Note: setupNewRound will now read the latest difficultyLevel from state
 
   const setupNewRound = () => {
     const correctColor = generateRandomColor();
@@ -53,24 +61,19 @@ export default function App() {
 
     setColorOptions(options);
   };
-  
-  const generateRandomColor = () => {
-    const red = Math.floor(Math.random() * 256);
-    const green = Math.floor(Math.random() * 256);
-    const blue = Math.floor(Math.random() * 256);
-    return `rgb(${red}, ${green}, ${blue})`;
-  };
 
   const handleColorGuess = (selectedColor) => {
     if (selectedColor === targetColor) {
       // Correct guess: Increase difficulty
-      setDifficultyLevel((prevLevel) => Math.min(100, prevLevel + 2));
+      setStreak(streak + 1);
+      setDifficultyLevel((prevLevel) => Math.min(100, prevLevel + ((streak + 1) * 5)));
       Alert.alert('Correct!', 'You guessed the right color!', [
         { text: 'Play Again', onPress: () => setupNewRound() },
       ]);
     } else {
       // Incorrect guess: Decrease difficulty
-      setDifficultyLevel((prevLevel) => Math.max(1, prevLevel - 1));
+      setDifficultyLevel((prevLevel) => Math.max(1, Math.floor(2 * prevLevel / 3)));
+      setStreak(0); // Reset streak on incorrect guess
       Alert.alert('Incorrect', 'Try again!');
     }
   };
@@ -118,5 +121,16 @@ const styles = StyleSheet.create({
     marginBottom: 40,
     letterSpacing: 2,
   },
-  // ... other styles
+  optionsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: '100%',
+  },
+  colorButton: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    borderWidth: 2,
+    borderColor: '#000',
+  },
 });
