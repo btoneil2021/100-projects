@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .task-item.completed {
+            text-decoration: line-through;
+            color: #9ca3af; /* gray-400 */
+        }
+        .task-item {
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+        .task-item:hover {
+            background-color: #f3f4f6; /* gray-100 */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <div class="container mx-auto max-w-2xl mt-10 md:mt-20 p-4">
+        
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white">My To-Do List</h1>
+            <p class="text-gray-600 dark:text-gray-400 mt-2">Add, complete, and remove tasks to stay organized.</p>
+        </header>
+
+        <!-- Input Form -->
+        <div class="bg-white dark:bg-gray-800 shadow-lg rounded-xl p-6 mb-8">
+            <div class="flex flex-col sm:flex-row gap-4">
+                <input type="text" id="taskInput" placeholder="Enter a new task..." class="flex-grow p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
+                <button id="addTaskBtn" class="bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition-colors">
+                    Add Task
+                </button>
+            </div>
+        </div>
+
+        <!-- Task List -->
+        <div class="bg-white dark:bg-gray-800 shadow-lg rounded-xl p-6">
+            <h2 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Tasks</h2>
+            <ul id="taskList" class="divide-y divide-gray-200 dark:divide-gray-700">
+                <!-- Tasks will be dynamically added here -->
+                 <li class="flex items-center justify-between p-4 task-item">
+                    <span class="flex-grow">Example Task 1</span>
+                    <button class="remove-btn text-red-500 hover:text-red-700 font-bold ml-4 opacity-50 hover:opacity-100 transition-opacity">
+                        &#x2715; <!-- 'X' character -->
+                    </button>
+                </li>
+                 <li class="flex items-center justify-between p-4 task-item completed">
+                    <span class="flex-grow">Completed Example</span>
+                    <button class="remove-btn text-red-500 hover:text-red-700 font-bold ml-4 opacity-50 hover:opacity-100 transition-opacity">
+                        &#x2715;
+                    </button>
+                </li>
+            </ul>
+            <div id="empty-message" class="text-center text-gray-500 dark:text-gray-400 py-6 hidden">
+                <p>Your to-do list is empty. Great job!</p>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="text-center mt-10 text-gray-500 dark:text-gray-400 text-sm">
+            <p>Click on a task to mark it as complete. Click the 'X' to remove it.</p>
+            <p>All tasks are stored in your browser and will be lost on refresh.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- DOM Element References ---
+            const taskInput = document.getElementById('taskInput');
+            const addTaskBtn = document.getElementById('addTaskBtn');
+            const taskList = document.getElementById('taskList');
+            const emptyMessage = document.getElementById('empty-message');
+
+            // --- Function to check if the list is empty and show a message ---
+            const checkEmptyState = () => {
+                if (taskList.children.length === 0) {
+                    emptyMessage.classList.remove('hidden');
+                } else {
+                    emptyMessage.classList.add('hidden');
+                }
+            };
+
+            // --- Function to add a new task ---
+            const addTask = () => {
+                const taskText = taskInput.value.trim();
+                
+                // Validate input
+                if (taskText === '') {
+                    alert('Please enter a task.'); // Using a simple alert for this example
+                    return;
+                }
+
+                // Create new list item (li)
+                const li = document.createElement('li');
+                li.className = 'flex items-center justify-between p-4 task-item';
+
+                // Create span for the task text
+                const taskSpan = document.createElement('span');
+                taskSpan.textContent = taskText;
+                taskSpan.className = 'flex-grow';
+
+                // Create remove button
+                const removeBtn = document.createElement('button');
+                removeBtn.innerHTML = '&#x2715;'; // 'X' character
+                removeBtn.className = 'remove-btn text-red-500 hover:text-red-700 font-bold ml-4 opacity-50 hover:opacity-100 transition-opacity';
+
+                // Append elements to the list item
+                li.appendChild(taskSpan);
+                li.appendChild(removeBtn);
+
+                // Add the new list item to the task list
+                taskList.appendChild(li);
+
+                // Clear the input field
+                taskInput.value = '';
+
+                // Update the empty state message
+                checkEmptyState();
+            };
+
+            // --- Event Listeners ---
+
+            // 1. Add task when the button is clicked
+            addTaskBtn.addEventListener('click', addTask);
+
+            // 2. Add task when 'Enter' key is pressed in the input field
+            taskInput.addEventListener('keypress', (event) => {
+                if (event.key === 'Enter') {
+                    addTask();
+                }
+            });
+
+            // 3. Handle clicks on the task list (for completing or removing tasks)
+            // This uses event delegation to handle events on dynamically created elements.
+            taskList.addEventListener('click', (event) => {
+                const target = event.target;
+                
+                // Check if a remove button was clicked
+                if (target.classList.contains('remove-btn')) {
+                    const li = target.parentElement;
+                    taskList.removeChild(li);
+                } 
+                // Check if a task item itself (or its text) was clicked
+                else if (target.closest('.task-item')) {
+                    const li = target.closest('.task-item');
+                    li.classList.toggle('completed');
+                }
+
+                // Update the empty state message after any action
+                checkEmptyState();
+            });
+
+            // Initial check for the empty state on page load
+            checkEmptyState();
+        });
+    </script>
+</body>
+</html>
