@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Link Checker</title>
+    <style>
+        body { font-family: sans-serif; margin: 2em; }
+        h1 { text-align: center; }
+        .container { max-width: 800px; margin: 0 auto; }
+        #url-input { width: 70%; padding: 8px; }
+        #check-button { padding: 8px 12px; }
+        #results-container { margin-top: 20px; border: 1px solid #ccc; padding: 10px; min-height: 100px; }
+        .result-item { padding: 5px; border-bottom: 1px solid #eee; }
+        .status-ok { color: green; }
+        .status-broken { color: red; }
+        .status-checking { color: gray; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Web Page Link Checker</h1>
+        <p>Enter the full URL of a webpage to check its links.</p>
+        <input type="url" id="url-input" placeholder="https://example.com">
+        <button id="check-button">Check Links</button>
+        <h2>Results:</h2>
+        <div id="results-container">
+            </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
