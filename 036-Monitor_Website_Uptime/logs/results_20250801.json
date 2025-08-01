@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Google",
+    "url": "https://www.google.com",
+    "timestamp": "2025-08-01T13:53:47.978623",
+    "status": "up",
+    "status_code": 200,
+    "response_time": 131.78,
+    "error": null
+  },
+  {
+    "name": "GitHub",
+    "url": "https://www.github.com",
+    "timestamp": "2025-08-01T13:53:48.110404",
+    "status": "up",
+    "status_code": 200,
+    "response_time": 287.18,
+    "error": null
+  },
+  {
+    "name": "Villanova University",
+    "url": "https://villanova.edu",
+    "timestamp": "2025-08-01T13:53:48.407223",
+    "status": "up",
+    "status_code": 200,
+    "response_time": 981.91,
+    "error": null
+  },
+  {
+    "name": "Stack Overflow",
+    "url": "https://www.stackoverflow.com",
+    "timestamp": "2025-08-01T13:53:49.390295",
+    "status": "up",
+    "status_code": 200,
+    "response_time": 371.05,
+    "error": null
+  },
+  {
+    "name": "Google",
+    "url": "https://www.google.com",
+    "timestamp": "2025-08-01T13:57:43.017678",
+    "status": "up",
+    "status_code": 200,
+    "response_time": 124.71,
+    "error": null
+  },
+  {
+    "name": "GitHub",
+    "url": "https://www.github.com",
+    "timestamp": "2025-08-01T13:57:43.142387",
+    "status": "up",
+    "status_code": 200,
+    "response_time": 280.32,
+    "error": null
+  },
+  {
+    "name": "Villanova University",
+    "url": "https://villanova.edu",
+    "timestamp": "2025-08-01T13:57:43.438785",
+    "status": "up",
+    "status_code": 200,
+    "response_time": 480.87,
+    "error": null
+  },
+  {
+    "name": "Stack Overflow",
+    "url": "https://www.stackoverflow.com",
+    "timestamp": "2025-08-01T13:57:43.919651",
+    "status": "up",
+    "status_code": 200,
+    "response_time": 501.12,
+    "error": null
+  }
+]

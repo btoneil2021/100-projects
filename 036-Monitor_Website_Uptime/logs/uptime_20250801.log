@@ -1,0 +1,27 @@
+2025-08-01 13:52:41,635 - INFO - Loaded 4 websites to monitor
+2025-08-01 13:52:41,650 - INFO - Starting continuous monitoring (default interval: 300s)
+2025-08-01 13:52:41,650 - INFO - Starting uptime check cycle...
+2025-08-01 13:52:41,803 - INFO - [OK] Google (https://www.google.com) - Status: 200, Response Time: 152.59ms
+2025-08-01 13:52:41,803 - ERROR - Failed to save result to logs/results_20250801.json: Expecting value: line 1 column 1 (char 0)
+2025-08-01 13:52:42,070 - INFO - [OK] GitHub (https://www.github.com) - Status: 200, Response Time: 267.35ms
+2025-08-01 13:52:42,070 - ERROR - Failed to save result to logs/results_20250801.json: Expecting value: line 1 column 1 (char 0)
+2025-08-01 13:52:42,539 - INFO - [OK] Villanova University (https://villanova.edu) - Status: 200, Response Time: 468.77ms
+2025-08-01 13:52:42,539 - ERROR - Failed to save result to logs/results_20250801.json: Expecting value: line 1 column 1 (char 0)
+2025-08-01 13:52:43,008 - INFO - [OK] Stack Overflow (https://www.stackoverflow.com) - Status: 200, Response Time: 469.35ms
+2025-08-01 13:52:43,008 - ERROR - Failed to save result to logs/results_20250801.json: Expecting value: line 1 column 1 (char 0)
+2025-08-01 13:52:43,008 - INFO - Uptime check cycle completed
+2025-08-01 13:52:43,008 - INFO - Sleeping for 300 seconds...
+2025-08-01 13:53:47,978 - INFO - Loaded 4 websites to monitor
+2025-08-01 13:53:47,978 - INFO - Starting uptime check cycle...
+2025-08-01 13:53:48,110 - INFO - [OK] Google (https://www.google.com) - Status: 200, Response Time: 131.78ms
+2025-08-01 13:53:48,397 - INFO - [OK] GitHub (https://www.github.com) - Status: 200, Response Time: 287.18ms
+2025-08-01 13:53:49,389 - INFO - [OK] Villanova University (https://villanova.edu) - Status: 200, Response Time: 981.91ms
+2025-08-01 13:53:49,761 - INFO - [OK] Stack Overflow (https://www.stackoverflow.com) - Status: 200, Response Time: 371.05ms
+2025-08-01 13:53:49,761 - INFO - Uptime check cycle completed
+2025-08-01 13:57:43,017 - INFO - Starting uptime check cycle...
+2025-08-01 13:57:43,142 - INFO - [OK] Google (https://www.google.com) - Status: 200, Response Time: 124.71ms
+2025-08-01 13:57:43,422 - INFO - [OK] GitHub (https://www.github.com) - Status: 200, Response Time: 280.32ms
+2025-08-01 13:57:43,919 - INFO - [OK] Villanova University (https://villanova.edu) - Status: 200, Response Time: 480.87ms
+2025-08-01 13:57:44,420 - INFO - [OK] Stack Overflow (https://www.stackoverflow.com) - Status: 200, Response Time: 501.12ms
+2025-08-01 13:57:44,420 - INFO - Uptime check cycle completed
+2025-08-01 13:57:44,420 - INFO - Sleeping for 300 seconds...

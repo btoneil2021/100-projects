@@ -1,0 +1,30 @@
+[
+  {
+    "url": "https://www.google.com",
+    "name": "Google",
+    "timeout": 10,
+    "expected_status": [200],
+    "check_interval": 300
+  },
+  {
+    "url": "https://www.github.com",
+    "name": "GitHub",
+    "timeout": 15,
+    "expected_status": [200],
+    "check_interval": 300
+  },
+  {
+    "url": "https://villanova.edu",
+    "name": "Villanova University",
+    "timeout": 10,
+    "expected_status": [200],
+    "check_interval": 300
+  },
+  {
+    "url": "https://www.stackoverflow.com",
+    "name": "Stack Overflow",
+    "timeout": 10,
+    "expected_status": [200],
+    "check_interval": 300
+  }
+]
